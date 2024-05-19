@@ -1,4 +1,5 @@
-// Declare players score variables in the global score
+function playGame() {
+// Declare players score variables
 // Initialize variables with the value of 0
 let humanScore = 0;
 let computerScore = 0;
@@ -13,7 +14,7 @@ function getComputerChoice() {
     // Select a random choice from an array
     let randomChoice = possibleOutcomes[randomNumber];
     // Return randomly chosen outcome
-    return (randomChoice);
+    return randomChoice;
 }
 
 // Write a logic to get human choice
@@ -22,16 +23,14 @@ function getHumanChoice() {
     // Ask for a prompt to receive human choice
     let humanChoice = prompt("Rock, Paper or Scissors?");
     // Return selected choice
-    console.log(humanChoice);
     return humanChoice;
 }
-
 // Write the logic to play a single round
 // Define two parameters for playRound: humanChoice and computerChoice
 function playRound(humanChoice, computerChoice) {
     // Make human and computer choice case insensitive
-    humanChoice = getHumanChoice().toLowerCase();
-    computerChoice = getComputerChoice().toLowerCase();
+    humanChoice = humanChoice.toLowerCase();
+    computerChoice = computerChoice.toLowerCase();
     // Write an if code representing the round winner
     // If choice is the same, we have a draw.
     if (humanChoice === computerChoice) {
@@ -61,7 +60,17 @@ function playRound(humanChoice, computerChoice) {
         computerScore += 1;
         console.log("Computer wins! Scissors beats Paper");
     }
-    console.log("Current Score: Computer: " + computerScore + " Player: " + humanScore);
 }
 
-    playRound();
+// Create a for loop to play 5 rounds
+    for (let i = 0; i < 5; i++) {
+        // Ask for a human prompt and computer choice
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        // Play round
+        playRound(humanSelection, computerSelection);
+        console.log("Current Score: Computer: " + computerScore + " Player: " + humanScore);
+    }
+}
+
+playGame();
