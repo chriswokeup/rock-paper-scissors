@@ -6,7 +6,21 @@ function getComputerChoice() {
     // Select a random number between 0 and 2
     let randomNumber = Math.floor(Math.random() * 3);
     // Select a random choice from an array
-    let randomChoice = possibleOutcomes[randomNumber]
+    let randomChoice = possibleOutcomes[randomNumber];
     // Return randomly chosen outcome
-    return(randomChoice)
+    return(randomChoice);
 }
+
+// Write a logic to get human choice
+
+// Create a function to get human choice
+function getHumanChoice() {
+// Ask for a prompt to receive human choice
+let humanChoice = prompt("Rock, Paper or Scissors?");
+// Return selected choice
+console.log(humanChoice);
+return humanChoice;
+}
+
+
+getHumanChoice();
